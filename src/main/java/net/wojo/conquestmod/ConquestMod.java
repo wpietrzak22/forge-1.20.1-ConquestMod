@@ -33,7 +33,7 @@ public class ConquestMod
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
-        System.out.println("Test");
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
