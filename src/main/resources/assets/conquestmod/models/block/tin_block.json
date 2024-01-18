@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "conquestmod:block/tin_block"
+  }
+}

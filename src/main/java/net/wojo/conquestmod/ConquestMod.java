@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.wojo.conquestmod.block.ModBlocks;
 import net.wojo.conquestmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -35,6 +36,9 @@ public class ConquestMod
         //registers items from ModItems Class.
         ModItems.register(modEventBus);
 
+        //registers block from ModBlocks Class.
+        ModBlocks.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -55,6 +59,11 @@ public class ConquestMod
         event.accept(ModItems.RAW_TIN);
         event.accept(ModItems.TIN_NUGGET);
         event.accept(ModItems.TIN_CLUMP);
+
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.TIN_BLOCK);
+            event.accept(ModBlocks.RAW_TIN_BLOCK);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

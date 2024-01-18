@@ -2,6 +2,9 @@
   "item.conquestmod.tin_ingot": "Tin Ingot",
   "item.conquestmod.raw_tin": "Raw Tin",
   "item.conquestmod.tin_nugget": "Tin Nugget",
-  "item.conquestmod.tin_clump": "Tin Clump"
+  "item.conquestmod.tin_clump": "Tin Clump",
+
+  "block.conquestmod.tin_block": "Tin Block",
+  "block.conquestmod.raw_tin_block": "Raw Tin Block"
 
 }
