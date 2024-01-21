@@ -1,7 +1,6 @@
 package net.wojo.conquestmod;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -10,14 +9,14 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.IModBusEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.wojo.conquestmod.block.ModBlocks;
+import net.wojo.conquestmod.item.ModCreativeModeTabs;
 import net.wojo.conquestmod.item.ModItems;
 import org.slf4j.Logger;
-
-import javax.swing.*;
 
 // The value here should match an entry in the META-INF/mods.toml file
 //Test
@@ -33,11 +32,16 @@ public class ConquestMod
     public ConquestMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        //Registers creative tab.
+        ModCreativeModeTabs.register(modEventBus);
+
         //registers items from ModItems Class.
         ModItems.register(modEventBus);
 
         //registers block from ModBlocks Class.
         ModBlocks.register(modEventBus);
+
 
         modEventBus.addListener(this::commonSetup);
 
